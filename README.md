@@ -26,7 +26,10 @@ The initial MVP includes:
 - Local SEO and AI-visibility navigation
 - LeadSniperAI Growth Opportunity Profile
 - Clear demonstration-data disclosure
-- Protected integration boundary for future DataForSEO requests
+- Protected integration boundary for future DataForSEO and Serper requests
+- Community Intelligence and Voice-of-Customer roadmap
+- LinkedIn Topic Radar specification
+- Zero Keyword Discovery feature specification
 
 > The current interface uses demonstration data. It is not yet connected to a live DataForSEO account.
 
@@ -194,7 +197,8 @@ The Social Intelligence component uses the Serper Google Search API to discover 
 - Public Reddit posts and comments indexed by Google
 - Public Facebook pages, public group pages, and indexed discussion results
 - Industry forums and community websites
-- Public review pages and question-and-answer sites
+- Public review pages and question-and-answer sites, including Google-indexed Quora questions
+- Publicly indexed LinkedIn posts, articles, and newsletters
 - Public YouTube discussion pages and other indexed social results
 
 Serper is a real-time Google Search API with country and language localization. It is a discovery layer, not direct access to social platforms. Private Facebook groups, login-protected content, deleted posts, member-only discussions, and content excluded from Google indexing are outside scope.
@@ -263,6 +267,85 @@ SERPER_API_BASE=https://google.serper.dev
 
 The API key must be stored as a protected server-side environment variable and must never be included in browser code.
 
+## LinkedIn Topic Radar
+
+The LinkedIn Topic Radar identifies topics gaining attention among authors, companies, competitors, and buyer roles relevant to the audited domain.
+
+The system derives its topic universe from the domain's services, audiences, problems, locations, entities, competitors, FAQs, and keyword gaps. It then combines:
+
+- Serper searches for publicly indexed LinkedIn posts, articles, and newsletters
+- Optional analyst-assisted LinkedIn-native search
+- Seven-day and 30-day historical snapshots
+- Unique-author and buyer-relevance signals
+- DataForSEO trend and demand validation
+- News and Community Intelligence confirmation
+- Evidence-backed content and commercial recommendations
+
+A single post cannot qualify a topic as trending. Trend labels require minimum mention, author, time-coverage, and confidence thresholds. Missing engagement or historical data must be disclosed.
+
+Planned dashboard outputs:
+
+- Breakout, rapidly growing, emerging, established, and declining topics
+- Trend velocity and confidence
+- Relevant authors, companies, competitors, services, audiences, and locations
+- Cross-source confirmation
+- Recommended AEO answer, FAQ, article, service page, research report, calculator, or monitoring action
+
+Serper is an indexed-web discovery layer, not a complete LinkedIn feed API. Private content, automated login, and access-control bypasses remain out of scope.
+
+## Zero Keyword Discovery
+
+The Zero Keyword Discovery feature finds commercially relevant emerging phrases before conventional keyword tools show meaningful search volume.
+
+### Discovery sources
+
+- Audited-domain products, services, audiences, problems, and entities
+- DataForSEO Keywords for Site, Keywords for Keywords, Related Keywords, and Keyword Overview
+- Google Ads search-volume history
+- Google Trends and DataForSEO Trends
+- Localized live SERPs
+- LinkedIn, Quora, Reddit, forums, YouTube, reviews, and news
+- Autocomplete, People Also Ask, and related searches
+- Competitor content
+- Optional Google Search Console queries and impressions
+
+### Volume classification
+
+Every candidate must preserve its exact data state:
+
+- Measured zero
+- Low volume
+- Null volume
+- Not returned
+- Grouped variant
+- Restricted
+- Insufficient history
+- New candidate
+- Validated emerging
+- Rejected
+
+Null, missing, restricted, and grouped values must never be silently converted to zero. A zero-volume result alone cannot trigger a content recommendation.
+
+### Scoring and outputs
+
+The feature maintains two separate measures:
+
+- **Emerging Demand Score:** domain fit, commercial intent, community signals, trend velocity, cross-source evidence, SERP weakness, and authority fit
+- **Evidence Confidence:** source diversity, recency, completeness, independent authors, and search evidence
+
+The Emerging Keyword Radar shows volume status, search history, CPC, difficulty, discovery sources, buyer relevance, SERP weakness, recommended content, evidence links, and monitoring state.
+
+High-priority candidates may produce:
+
+- AEO answers and FAQs
+- Articles and executive viewpoints
+- Service, comparison, industry, or geographic pages
+- Calculators and assessments
+- Research reports
+- Monitor, consolidate, human-review, or reject decisions
+
+Historical monitoring should detect movement from zero or null data to measurable demand and connect published content to impressions, rankings, leads, and attributed outcomes.
+
 ## Cost controls
 
 A free audit must be deliberately bounded:
@@ -310,6 +393,11 @@ A free audit must be deliberately bounded:
 
 - [ ] Social Intelligence discovery through Serper
 - [ ] Community pain, intent, objection, and trend clustering
+- [ ] Quora Question Intelligence
+- [ ] LinkedIn Topic Radar and historical trend velocity
+- [ ] Zero Keyword Discovery and Emerging Keyword Radar
+- [ ] DataForSEO zero/null/grouped volume-state classification
+- [ ] Search Console emerging-query validation
 - [ ] Technical site audit
 - [ ] Local rank tracking
 - [ ] Backlink and authority gaps
@@ -332,8 +420,9 @@ agent/initial-application
 ## Active development
 
 - [PR #1 — Initial Search Growth Intelligence application](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/1)
-- [PR #2 — Customer-facing Business Growth Audit experience](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/2)
+- [PR #2 — Customer audit with Community & Social Intelligence](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/2)
+- [PR #3 — Zero Keyword Discovery Feature](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/3)
 
 ## Status
 
-The first interactive application and customer-audit specifications have been created. Live DataForSEO and Serper connectivity, persistence, authentication, LeadSniperAI qualification, and Atomic CRM routing are the next milestones.
+The first interactive application, customer-audit specification, Community Intelligence architecture, LinkedIn Topic Radar, and Zero Keyword Discovery specification have been created. Live DataForSEO and Serper connectivity, persistence, authentication, historical monitoring, LeadSniperAI qualification, and Atomic CRM routing are the next milestones.
