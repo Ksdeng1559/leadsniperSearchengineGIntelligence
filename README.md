@@ -185,6 +185,84 @@ Security requirements:
 10. Produce the customer audit and internal Growth Opportunity Profile.
 11. Route qualified opportunities into LeadSniperAI and Atomic CRM.
 
+## Social Intelligence
+
+The Social Intelligence component uses the Serper Google Search API to discover publicly indexed community conversations related to a business, service, market, competitor, or customer problem.
+
+### Sources
+
+- Public Reddit posts and comments indexed by Google
+- Public Facebook pages, public group pages, and indexed discussion results
+- Industry forums and community websites
+- Public review pages and question-and-answer sites
+- Public YouTube discussion pages and other indexed social results
+
+Serper is a real-time Google Search API with country and language localization. It is a discovery layer, not direct access to social platforms. Private Facebook groups, login-protected content, deleted posts, member-only discussions, and content excluded from Google indexing are outside scope.
+
+### Intelligence outputs
+
+- Recurring customer pain points
+- Purchase and provider-search intent
+- Urgency and funding-need signals
+- Common objections and trust concerns
+- Competitor praise and complaints
+- Language customers use to describe problems
+- Frequently requested services
+- Local community topics
+- Emerging demand and content ideas
+- Source links and evidence timestamps
+
+### Query strategy
+
+The service should create bounded searches such as:
+
+```text
+site:reddit.com "<service>" "<city>"
+site:reddit.com "<problem>" "<province>"
+site:facebook.com/groups "<service>" "<city>"
+site:facebook.com "<business category>" "<location>"
+"<competitor>" reviews complaints
+"<service>" recommendations "<city>"
+```
+
+Queries must be generated server-side, deduplicated, localized, cached, and attributed to the original public source.
+
+### Social opportunity scoring
+
+Each signal can be evaluated for:
+
+| Component | Suggested weight |
+| --- | ---: |
+| Commercial intent | 25 |
+| Urgency | 20 |
+| Local relevance | 15 |
+| Recurrence | 15 |
+| Service alignment | 15 |
+| Evidence confidence | 10 |
+
+Social signals should influence the Growth Opportunity Profile but should not be treated as verified facts about an individual or business without corroboration.
+
+### Privacy, evidence, and content rules
+
+- Use only publicly accessible, Google-indexed results.
+- Do not attempt to access private groups or bypass authentication.
+- Preserve source attribution and canonical links.
+- Store short evidence excerpts, structured observations, and hashes rather than copying complete discussions.
+- Do not build personal profiles from sensitive information.
+- Avoid outreach based on protected or highly sensitive personal characteristics.
+- Provide removal and retention controls.
+- Label inferred sentiment, intent, and opportunity signals as model-generated classifications.
+- Respect Serper and source-platform terms, copyrights, and applicable privacy laws.
+
+### Serper environment variables
+
+```env
+SERPER_API_KEY=
+SERPER_API_BASE=https://google.serper.dev
+```
+
+The API key must be stored as a protected server-side environment variable and must never be included in browser code.
+
 ## Cost controls
 
 A free audit must be deliberately bounded:
@@ -230,6 +308,8 @@ A free audit must be deliberately bounded:
 
 ### Phase 4 — Advanced intelligence
 
+- [ ] Social Intelligence discovery through Serper
+- [ ] Community pain, intent, objection, and trend clustering
 - [ ] Technical site audit
 - [ ] Local rank tracking
 - [ ] Backlink and authority gaps
