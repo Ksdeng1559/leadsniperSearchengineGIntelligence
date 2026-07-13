@@ -293,6 +293,26 @@ Planned dashboard outputs:
 
 Serper is an indexed-web discovery layer, not a complete LinkedIn feed API. Private content, automated login, and access-control bypasses remain out of scope.
 
+## LinkedIn GTM Solution Bridge
+
+The planned LinkedIn GTM Solution Bridge converts a completed domain audit into an evidence-backed LinkedIn selling strategy.
+
+It will combine:
+
+- Search Growth and conversion findings
+- Community and Voice-of-Customer language
+- LinkedIn Topic Radar evidence
+- Zero Keyword and emerging-demand signals
+- ICP, buying-role, trigger, offer, and content recommendations
+- Human-reviewed account research and next-best actions
+- Vidyard personalized-video briefs and engagement
+- Unipile-connected Gmail and supported conversation synchronization
+- Atomic CRM relationship, consent, approval, opportunity, and attribution records
+
+The bridge is development-only and does not implement automated LinkedIn connection requests, likes, comments, scraping, or autonomous direct messages. Every outbound action requires recipient-level human approval. Provider integrations and production sending remain disabled behind feature flags until security, privacy, consent, platform-policy, and end-to-end tests pass.
+
+Detailed implementation request: [LinkedIn GTM Solution Bridge](docs/LINKEDIN_GTM_SOLUTION_BRIDGE.md)
+
 ## Zero Keyword Discovery
 
 The Zero Keyword Discovery feature finds commercially relevant emerging phrases before conventional keyword tools show meaningful search volume.
@@ -395,7 +415,7 @@ A free audit must be deliberately bounded:
 - [ ] Community pain, intent, objection, and trend clustering
 - [ ] Quora Question Intelligence
 - [ ] LinkedIn Topic Radar and historical trend velocity
-- [ ] Zero Keyword Discovery and Emerging Keyword Radar
+- [ ] Zero Keyword Discovery and Emerging Keyword Radar\n- [ ] LinkedIn GTM Solution Bridge\n- [ ] Vidyard personalized video engagement\n- [ ] Unipile unified messaging and Gmail bridge\n- [ ] Atomic CRM GTM attribution and approval workflow
 - [ ] DataForSEO zero/null/grouped volume-state classification
 - [ ] Search Console emerging-query validation
 - [ ] Technical site audit
@@ -421,7 +441,7 @@ agent/initial-application
 
 - [PR #1 — Initial Search Growth Intelligence application](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/1)
 - [PR #2 — Customer audit with Community & Social Intelligence](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/2)
-- [PR #3 — Zero Keyword Discovery Feature](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/3)
+- [PR #3 — Zero Keyword Discovery Feature](https://github.com/Ksdeng1559/leadsniperSearchengineGIntelligence/pull/3)\n- LinkedIn GTM Solution Bridge — draft PR in development
 
 ## Status
 
